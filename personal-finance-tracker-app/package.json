@@ -27,7 +27,8 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,7 +52,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^16.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
