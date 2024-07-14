@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Home, CreditCard, PieChart, User } from 'lucide-react';
+import Link from 'react-router-dom'
 
 const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,10 +8,10 @@ const HeaderComponent = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const menuItems = [
-    { name: 'Home', icon: Home },
-    { name: 'Expenses', icon: CreditCard },
-    { name: 'Investments', icon: PieChart },
-    { name: 'Budget Planning', icon: User },
+    { name: 'Home', icon: Home, link: '/' },
+    { name: 'Expenses', icon: CreditCard,  link: '/expenses'},
+    { name: 'Investments', icon: PieChart, link: '/investments'},
+    { name: 'Budget Planning', icon: User, link: '/budget'},
   ];
 
   return (
@@ -19,14 +20,14 @@ const HeaderComponent = () => {
         <div className="text-2xl font-bold">Finance Tracker</div>
         <nav className="hidden md:flex space-x-6">
           {menuItems.map((item) => (
-            <a
+            <Link to={item.link}><a
               key={item.name}
               href="#"
               className="flex items-center space-x-1 hover:text-indigo-200 transition duration-150 ease-in-out"
             >
               <item.icon size={18} />
               <span>{item.name}</span>
-            </a>
+            </a></Link>
           ))}
         </nav>
         <button onClick={toggleMenu} className="md:hidden">
