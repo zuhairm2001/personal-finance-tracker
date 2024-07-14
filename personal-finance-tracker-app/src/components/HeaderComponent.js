@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Home, CreditCard, PieChart, User } from 'lucide-react';
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
