@@ -3,20 +3,20 @@ const {MongoClient} = require('mongodb');
 require('dotenv').config({ path: '../../.env' });
 
 
-async function main(){
-    const Db = process.env.ATLAS_URI
-    const client = new MongoClient(Db)
-    try{
-        await client.connect();
-        const collections = await client.db("financeApp").collections();
-        collections.forEach((collection) => console.log(collection.s.namespace.collection));
-    } catch(e) {
-        console.error(e)
-    } finally {
-        await client.close();
+
+const connectDB = async () => {
+    try {
+      await mongoose.connect(process.env.ATLAS_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log('MongoDB connected successfully');
+    } catch (error) {
+      console.error('MongoDB connection error:', error);
+      process.exit(1);
     }
-
-    
-}
-
-main();
+  };
+  
+  module.exports = connectDB;
+  
+  
