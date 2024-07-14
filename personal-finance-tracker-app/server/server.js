@@ -30,6 +30,12 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-app.listen(config.port, () => {
-  console.log(`Server is running on port ${config.port} in ${config.nodeEnv} mode`);
+connect().then(() => {
+  // Start the server only after successful database connection
+  app.listen(config.port, () => {
+    console.log(`Server is running on port ${config.port} in ${config.nodeEnv} mode`);
+  });
+}).catch(err => {
+  console.error('Failed to connect to the database:', err);
+  process.exit(1);
 });
