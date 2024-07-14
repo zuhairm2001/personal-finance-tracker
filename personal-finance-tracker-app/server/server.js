@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
 const config = require('./config');
-const routes = require('./routes');
 const connect = require('./config/database.cjs');
 
 const app = express();
