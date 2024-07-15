@@ -51,3 +51,11 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
+exports.loginUser = async (req, res) => {
+  res.json("login")
+};
+
+exports.getUserProfile = async (req, res) => {
+  res.json("profile")
+};
+
