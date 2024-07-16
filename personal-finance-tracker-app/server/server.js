@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const config = require('./config');
 const connect = require('./config/database.cjs');
+const router = require('./routes/userRoutes');
 
 const app = express();
 
@@ -16,11 +17,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('./build'));
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to the Personal Finance Tracker API!' });
 });
 
-
+app.use('/api', router);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

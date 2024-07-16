@@ -52,7 +52,17 @@ exports.deleteUser = async (req, res) => {
 };
 
 exports.loginUser = async (req, res) => {
-  res.json("login")
+  const {email, password} = req.body;
+
+  try {
+    const users = await User.findOne({'email':email});
+    // res.send(users);
+  } catch (error) {
+    res.status(400).json({error: "User Doesn't Exist"});
+  }
+  res.json("LOGGED IN");
+
+
 };
 
 exports.getUserProfile = async (req, res) => {
