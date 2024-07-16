@@ -56,11 +56,15 @@ exports.loginUser = async (req, res) => {
 
   try {
     const users = await User.findOne({'email':email});
-    // res.send(users);
+    if(!users){
+      res.status(400).json({error: "User Doesn't Exist"});  
+    } 
+    res.send(users);
+
   } catch (error) {
     res.status(400).json({error: "User Doesn't Exist"});
   }
-  res.json("LOGGED IN");
+  // res.json("LOGGED IN");
 
 
 };
