@@ -1,12 +1,11 @@
-import React from 'react'
-import HeaderComponent from '../components/headerComponent';
-import FooterComponent from '../components/footerComponent';
-
+import React from "react";
+import FooterComponent from "../components/footerComponent";
+import HeaderComponent from "../components/HeaderComponent";
 
 function ExpensesPage() {
   return (
     <>
-    <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <HeaderComponent />
         <main className="flex-grow container mx-auto px-4 py-8">
           {/* Your main content goes here */}
@@ -16,7 +15,7 @@ function ExpensesPage() {
         <FooterComponent />
       </div>
     </>
-  )
+  );
 }
 
-export default ExpensesPage
+export default ExpensesPage;
