@@ -8,21 +8,22 @@ const createTokens = (user) => {
   return accessToken;
 };
 
-const validateToken (req, res, next) => {
-  const accessToken = req.cookies["accessToken"]
+const validateToken = (req, res, next) => {
+  const accessToken = req.cookies["accessToken"];
 
-  if (!accessToken) 
-    return res.status(400).json({error: "User not Authenticated"});
+  if (!accessToken)
+    return res.status(400).json({ error: "User not Authenticated" });
 
   try {
-    const validToken = verify(accessToken, "jwtscretplschange")
+    const validToken = verify("accessToken", "jwtscretplschange");
+    console.log(validToken);
     if (validToken) {
-      req.authenticated = true
-      return next()
+      req.authenticated = true;
+      return next();
     }
-  } catch(err) {
-    return res.status(400).json({error: err})
+  } catch (err) {
+    return res.status(400).json({ error: err });
   }
-}
+};
 
-module.exports = { createTokens };
+module.exports = { createTokens, validateToken };
