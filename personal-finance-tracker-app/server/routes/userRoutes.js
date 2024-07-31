@@ -11,6 +11,6 @@ router.delete("/users/:id", userController.deleteUser);
 
 //creating user
 router.post("/login", userController.loginUser);
-router.get("/profile", userController.getUserProfile);
+router.get("/profile", validateToken, userController.getUserProfile);
 
 module.exports = router;
