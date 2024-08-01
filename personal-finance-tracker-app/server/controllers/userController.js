@@ -2,6 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const { createTokens, validateToken } = require("../config/JWT");
+const { cookie } = require("express-validator");
 
 exports.createUser = async (req, res) => {
   try {
@@ -105,5 +106,18 @@ exports.deleteUser = async (req, res) => {
 };
 
 exports.getUserProfile = async (req, res) => {
-  res.json("profile");
+  try {
+    const userId = req.user.id;
+
+    const user = await User.findById(userId).select("-password");
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json({ user });
+  } catch (error) {
+    console.error("Error fetching user profile: ", error);
+    res.status(500).json({ error: "Server error" });
+  }
 };
