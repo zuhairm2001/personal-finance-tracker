@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Menu, X, Home, CreditCard, PieChart, User } from 'lucide-react';
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { Menu, X, Home, CreditCard, PieChart, User, LogIn } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,10 +8,11 @@ const HeaderComponent = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const menuItems = [
-    { name: 'Home', icon: Home, link: '/' },
-    { name: 'Expenses', icon: CreditCard,  link: '/expenses'},
-    { name: 'Investments', icon: PieChart, link: '/investments'},
-    { name: 'Budget Planning', icon: User, link: '/budget'},
+    { name: "Home", icon: Home, link: "/" },
+    { name: "Expenses", icon: CreditCard, link: "/expenses" },
+    { name: "Investments", icon: PieChart, link: "/investments" },
+    { name: "Budget Planning", icon: User, link: "/budget" },
+    { name: "Login", icon: LogIn, link: "/login" },
   ];
 
   return (
@@ -20,14 +21,16 @@ const HeaderComponent = () => {
         <div className="text-2xl font-bold">Finance Tracker</div>
         <nav className="hidden md:flex space-x-6">
           {menuItems.map((item) => (
-            <Link to={item.link}><a
-              key={item.name}
-              href="#"
-              className="flex items-center space-x-1 hover:text-indigo-200 transition duration-150 ease-in-out"
-            >
-              <item.icon size={18} />
-              <span>{item.name}</span>
-            </a></Link>
+            <Link to={item.link}>
+              <a
+                key={item.name}
+                href="#"
+                className="flex items-center space-x-1 hover:text-indigo-200 transition duration-150 ease-in-out"
+              >
+                <item.icon size={18} />
+                <span>{item.name}</span>
+              </a>
+            </Link>
           ))}
         </nav>
         <button onClick={toggleMenu} className="md:hidden">
