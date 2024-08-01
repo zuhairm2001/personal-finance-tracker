@@ -11,15 +11,17 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
-function LoginPage() {
+function RegistrationPage() {
+  const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically handle the login logic
-    console.log("Login attempt with:", { email, password });
+    // Here you would typically handle the registration logic
+    console.log("Registration attempt with:", { name, email, password });
   };
+
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -27,11 +29,22 @@ function LoginPage() {
         <main className="flex-grow container mx-auto px-4 py-8 flex items-center justify-center">
           <Card className="w-full max-w-md">
             <CardHeader>
-              <h2 className="text-2xl font-bold text-center">Login</h2>
+              <h2 className="text-2xl font-bold text-center">Register</h2>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Enter your name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
                     <Input
@@ -57,7 +70,7 @@ function LoginPage() {
                 </div>
                 <CardFooter className="flex justify-center pt-6">
                   <Button type="submit" className="w-full">
-                    Log In
+                    Register
                   </Button>
                 </CardFooter>
               </form>
@@ -69,4 +82,5 @@ function LoginPage() {
     </>
   );
 }
-export default LoginPage;
+
+export default RegistrationPage;
