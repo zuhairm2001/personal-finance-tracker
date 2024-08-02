@@ -7,6 +7,7 @@ import InvestmentsPage from "./pages/InvestmentsPage";
 import BudgetPage from "./pages/BudgetPage";
 import LoginPage from "pages/LoginPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RegistrationPage from "pages/RegistrationPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegistrationPage />,
   },
 ]);
 

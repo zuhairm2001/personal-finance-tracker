@@ -10,7 +10,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import axios from "axios"
+import axios from "axios";
+
+const baseURL = "https://localhost:3000/api";
 
 function LoginPage() {
   const [email, setEmail] = React.useState("");
@@ -18,9 +20,10 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.get({
-      https://localhost:3000/api/login 
-    })
+    axios.post("api/login", {
+      email: email,
+      password: password,
+    });
     // Here you would typically handle the login logic
     console.log("Login attempt with:", { email, password });
   };

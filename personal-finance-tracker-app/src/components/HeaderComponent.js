@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Menu, X, Home, CreditCard, PieChart, User, LogIn } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  CreditCard,
+  PieChart,
+  User,
+  LogIn,
+  UserPen,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
@@ -13,6 +22,7 @@ const HeaderComponent = () => {
     { name: "Investments", icon: PieChart, link: "/investments" },
     { name: "Budget Planning", icon: User, link: "/budget" },
     { name: "Login", icon: LogIn, link: "/login" },
+    { name: "Register", icon: UserPen, link: "/register" },
   ];
 
   return (
