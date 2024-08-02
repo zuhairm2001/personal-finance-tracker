@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import axios from "axios";
 
 function RegistrationPage() {
   const [name, setName] = React.useState("");
@@ -18,7 +19,11 @@ function RegistrationPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically handle the registration logic
+    axios.post("api/users", {
+      name: name,
+      email: email,
+      password: password,
+    });
     console.log("Registration attempt with:", { name, email, password });
   };
 
