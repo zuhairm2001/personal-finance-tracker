@@ -1,6 +1,6 @@
 import React from "react";
-import HeaderComponent from "../components/headerComponent";
-import FooterComponent from "../components/footerComponent";
+import HeaderComponent from "../components/HeaderComponent";
+import FooterComponent from "../components/FooterComponent";
 import {
   Card,
   CardHeader,

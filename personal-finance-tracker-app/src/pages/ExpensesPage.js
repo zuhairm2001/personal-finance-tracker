@@ -1,5 +1,5 @@
 import React from "react";
-import FooterComponent from "../components/footerComponent";
+import FooterComponent from "../components/FooterComponent";
 import HeaderComponent from "../components/HeaderComponent";
 
 function ExpensesPage() {

@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const { createTokens, validateToken } = require("../config/JWT");
